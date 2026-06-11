@@ -32,7 +32,7 @@ Open your `claude_desktop_config.json` (Settings → Developer → Edit Config) 
   "mcpServers": {
     "template-vault": {
       "command": "npx",
-      "args": ["-y", "@template-vault/mcp"]
+      "args": ["-y", "template-vault-mcp"]
     }
   }
 }
@@ -57,7 +57,7 @@ In `~/.cursor/mcp.json`:
   "mcpServers": {
     "template-vault": {
       "command": "npx",
-      "args": ["-y", "@template-vault/mcp"]
+      "args": ["-y", "template-vault-mcp"]
     }
   }
 }
@@ -92,7 +92,7 @@ The Template Vault generator itself (Anthropic Sonnet) applies its own content s
 
 ```
 ┌──────────────────────┐         stdio        ┌─────────────────────────┐
-│  Claude Desktop /    │ ─────────────────▶  │ @template-vault/mcp     │
+│  Claude Desktop /    │ ─────────────────▶  │ template-vault-mcp     │
 │  Cursor / Windsurf   │ ◀───────────────── │ (this package)          │
 └──────────────────────┘                     └────────────┬────────────┘
                                                           │ HTTPS + OAuth
