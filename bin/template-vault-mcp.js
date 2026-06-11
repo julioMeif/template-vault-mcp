@@ -17,7 +17,7 @@
  *
  *   "template-vault": {
  *     "command": "npx",
- *     "args": ["-y", "@template-vault/mcp"]
+ *     "args": ["-y", "template-vault-mcp"]
  *   }
  *
  * Or directly without this wrapper (equivalent):
@@ -34,10 +34,15 @@ const ENDPOINT =
   process.env.TEMPLATE_VAULT_MCP_URL ||
   "https://www.the-template-vault.com/api/mcp";
 
+// Windows: `npx` is `npx.cmd`; node:child_process.spawn doesn't resolve
+// `.cmd` extensions on its own and errors with ENOENT. Route through the
+// system shell (cmd.exe on Windows, /bin/sh elsewhere) so the OS handles
+// extension lookup + PATHEXT. Safe here because we control every arg —
+// no untrusted input gets concatenated into the command string.
 const child = spawn(
   "npx",
   ["-y", "mcp-remote", ENDPOINT, ...process.argv.slice(2)],
-  { stdio: "inherit" }
+  { stdio: "inherit", shell: true }
 );
 
 child.on("exit", (code) => process.exit(code ?? 0));

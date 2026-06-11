@@ -1,6 +1,6 @@
 {
   "name": "template-vault-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server adapter for Template Vault — generate, edit, and publish real websites from a Claude / ChatGPT / Cursor conversation.",
   "license": "MIT",
   "author": "Julien Meiffren <julien.meiffren@the-template-vault.com>",
